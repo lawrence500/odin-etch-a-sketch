@@ -1,15 +1,53 @@
 const settingsBtn = document.getElementById("settings-btn");
 const settings = document.querySelector(".settings-box");
 
+const colorsBtn = document.getElementById('colors-btn')
+const colorBox = document.querySelector('.colors-box')
+
+
 settingsBtn.addEventListener("click", () => {
   settings.classList.toggle("open");
 });
+
+colorsBtn.addEventListener('click', () => {
+  colorBox.classList.toggle('open')
+})
+
 
 let sketchAreaSize = 700;
 let sketchAreaRows = 70;
 let sketchAreaCols = 70;
 
 let brushActive = false;
+let selectedColor = 'white'
+
+const colorOptions = [
+  'black',
+  'orange',
+  'red',
+  'yellow',
+  'green',
+  'pink',
+  'white',
+  'blue',
+]
+
+
+createColorOptions()
+function createColorOptions(){
+  colorOptions.forEach(color => {
+    const colorOption = document.createElement('div')
+    colorOption.style.backgroundColor = color
+    colorOption.value = color
+
+    colorOption.addEventListener('click', (e) => {
+      selectedColor = e.target.value
+      console.log(selectedColor)
+    })
+
+    colorBox.append(colorOption)
+  });
+}
 
 const sketchArea = document.querySelector(".sketch-area");
 sketchArea.style.width = `${sketchAreaSize}px`;
@@ -48,6 +86,7 @@ function createSketchArea() {
   }
 }
 
+/*
 const adjustGridBtn = document.getElementById("adjust-grid-btn");
 
 function handleGridSize() {
@@ -72,8 +111,11 @@ function handleGridSize() {
         element.style.height = `${sketchAreaSize / cols}px`
       });
   }
+
+  gridSizeInput.value = ''
 }
 
 adjustGridBtn.addEventListener("click", () => {
   handleGridSize();
 });
+*/

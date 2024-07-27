@@ -58,15 +58,34 @@ main{
 }
 
 
-.settings-box{
+.settings-box, .colors-box{
     flex: 0;
     overflow: hidden;
     background-color: darkgray;
     transition: flex ease-in 0.4s;
-
 }
 
-.settings-box.open{flex: 1;}
+.settings-box.open, .colors-box.open{
+    flex: 1;
+}
+
+
+.colors-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.colors-box div {
+    flex: 1;
+    height: 100px;
+    margin: 5px 30px;
+    cursor: pointer;
+}
+
+
+
 
 
 
