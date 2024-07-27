@@ -5,9 +5,9 @@ settingsBtn.addEventListener("click", () => {
   settings.classList.toggle("open");
 });
 
-let sketchAreaSize = 850;
-let sketchAreaRows = 100;
-let sketchAreaCols = 100;
+let sketchAreaSize = 700;
+let sketchAreaRows = 70;
+let sketchAreaCols = 70;
 
 let brushActive = false;
 
@@ -15,10 +15,9 @@ const sketchArea = document.querySelector(".sketch-area");
 sketchArea.style.width = `${sketchAreaSize}px`;
 sketchArea.style.height = `${sketchAreaSize}px`;
 
-
+createSketchArea();
 
 document.body.addEventListener("keydown", (e) => {
-  console.log(e.code);
   if (e.code === "ShiftLeft") {
     brushActive = true;
   }
@@ -42,11 +41,39 @@ function createSketchArea() {
     sketchGridBox.style.width = `${sketchAreaSize / rows}px`;
     sketchGridBox.style.height = `${sketchAreaSize / cols}px`;
     document.querySelector(".sketch-area").append(sketchGridBox);
-
+    sketchGridBox.style.border = "1px solid black";
     sketchGridBox.addEventListener("mouseover", () =>
       handleBoxChange(sketchGridBox)
     );
   }
 }
 
-createSketchArea();
+const adjustGridBtn = document.getElementById("adjust-grid-btn");
+
+function handleGridSize() {
+  const gridSizeInput = document.getElementById("grid-size-input");
+  const gridSizeValue = gridSizeInput.value;
+
+  if (gridSizeValue > 100) {
+    return console.log("grid size must be less than a 100");
+  }
+
+  sketchAreaCols = gridSizeValue;
+  sketchAreaRows = gridSizeValue;
+
+  const sketchGridBox = Array.from(sketchArea.children);
+
+  const rows = sketchAreaRows;
+  const cols = sketchAreaCols;
+
+  for(let i = 0; i < rows * cols; i++){
+    sketchGridBox.forEach(element => {
+        element.style.width = `${sketchAreaSize / rows}px`
+        element.style.height = `${sketchAreaSize / cols}px`
+      });
+  }
+}
+
+adjustGridBtn.addEventListener("click", () => {
+  handleGridSize();
+});

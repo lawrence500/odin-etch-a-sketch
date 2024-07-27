@@ -43,22 +43,27 @@ main{
 
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    gap: 5px;
     align-items: center;
     overflow: hidden;
 }
 
 .sketch-area{
     background-color: white;
-
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 
 }
 
 
 .settings-box{
+    flex: 0;
+    overflow: hidden;
     background-color: darkgray;
     transition: flex ease-in 0.4s;
+
 }
 
 .settings-box.open{flex: 1;}

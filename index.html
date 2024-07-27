@@ -15,17 +15,23 @@
     <header>
         <h1>The Great Etch-A-Sketch</h1>
 
-
-        <i class="fa-solid fa-gear" id="settings-btn"></i>
+        <nav>
+            <i class="fa-solid fa-gear" id="settings-btn"></i>
+        </nav>
     </header>
 
     <main>
         <div class="sketch-box">
-
+            <h2>10 X 10</h2>
             <div class="sketch-area"></div>
         </div>
-        <div class="settings-box">
+        <div class="settings-box open">
 
+            <div class="grid-size-input-box">
+                <label for="adjust grid sizes">adjust grid size</label>
+                <input type="number" id="grid-size-input">
+                <button id="adjust-grid-btn">adjust size</button>
+            </div>
         </div>
     </main>
 
