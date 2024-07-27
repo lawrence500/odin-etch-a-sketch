@@ -16,7 +16,7 @@ body{
 
 header{
     background-color: gray;
-    height: 5vh;
+    height: 10vh;
 
     display: inline-flex;
     justify-content: space-between;
@@ -44,6 +44,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .sketch-area{
@@ -51,7 +52,9 @@ main{
 
     display: flex;
     flex-wrap: wrap;
+
 }
+
 
 .settings-box{
     background-color: darkgray;
@@ -62,7 +65,3 @@ main{
 
 
 
-footer{
-    background-color: gray;
-    height: 5vh;
-}
