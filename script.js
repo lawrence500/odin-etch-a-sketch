@@ -32,18 +32,17 @@ const colorOptions = [
   'blue',
 ]
 
-const gridSizes = [
-  {
-    gridSize : '32 X 32',
-    gridSizeValueRows : 32,
-    gridSizeValueCols : 16
-  },
-  {
-    gridSize : '16 X 16',
-    gridSizeValueRows : 16,
-    gridSizeValueCols : 16,
+const gridSizes = []
+
+for(let i = 1; i < 100; i++){
+  if(i % 2 === 0){
+    gridSizes.push({
+      gridSize : `${i} X ${i}`,
+      gridSizeValueRows : i,
+      gridSizeValueCols : i
+    })
   }
-]
+}
 
 gridSizes.forEach((grid) => {
   createGridOption(grid)
@@ -121,7 +120,7 @@ function createSketchArea(rows, cols) {
   }
 }
 const gridSizeInput = document.getElementById('grid-size-input')
-const newGridBtn = document.getElementById('new-grid-input-btn')
+const newGridBtn = document.getElementById('new-grid-size-btn')
 function handleNewGrid(){
   if(gridSizeInput.value > 100) 
   return prompt('grid size must be less than 100')
