@@ -69,6 +69,24 @@ main{
     flex: 1;
 }
 
+.settings-box{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.settings-box div:nth-child(1){
+    flex: 1;
+}
+
+.settings-box div:nth-child(1)  h2{
+    text-align: center;
+    border-top: 3px solid black;
+}
+
+.settings-box div:nth-child(2){
+    padding: 10px;
+}
+
 
 .colors-box{
     display: flex;

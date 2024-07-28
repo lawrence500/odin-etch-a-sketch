@@ -26,19 +26,23 @@
 
         </div>
         <div class="sketch-box">
-            <h2>10 X 10</h2>
+            <h2 id="grid-size-text">10 X 10</h2>
             <div class="sketch-area"></div>
+            <h3>Hold shift to draw</h3>
         </div>
-        <div class="settings-box">
+        <div class="settings-box open">
 
-            <!--
-            <div class="grid-size-input-box">
-                <label for="adjust grid sizes">adjust grid size</label>
-                <input type="number" id="grid-size-input">
-                <button id="adjust-grid-btn">adjust size</button>
-            </div>
-           -->
+           <div class="grid-size-options">
+            <h2>grid size options</h2>
+           </div>
 
+           <div class="grid-size-input">
+            <label>custom grid size</label>
+            <input type="number" id="grid-size-input">
+            <p>grid size (0, 100)</p>
+
+            <button id="new-grid-size-btn">create</button>
+           </div>
 
         </div>
     </main>
