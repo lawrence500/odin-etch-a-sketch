@@ -16,6 +16,7 @@
         <h1>The Great Etch-A-Sketch</h1>
 
         <nav>
+            <i class="fa-solid fa-grip" id="display-grid-btn"></i>
             <i class="fa-solid fa-paintbrush" id="colors-btn"></i>
             <i class="fa-solid fa-gear" id="settings-btn"> new grid</i>
         </nav>
@@ -32,13 +33,16 @@
         </div>
         <div class="settings-box open">
 
-           <div class="grid-size-options">
+           <div class="grid-sizes">
             <h2>grid size options</h2>
+            <div class="grid-size-options">
+
+            </div>
            </div>
 
            <div class="grid-size-input">
             <label>custom grid size</label>
-            <input type="number" id="grid-size-input">
+            <input type="number" id="grid-size-input" value="50">
             <p>grid size (0, 100)</p>
 
             <button id="new-grid-size-btn">create</button>

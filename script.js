@@ -78,6 +78,7 @@ function createColorOptions(){
 const sketchArea = document.querySelector(".sketch-area");
 sketchArea.style.width = `${sketchAreaSize}px`;
 sketchArea.style.height = `${sketchAreaSize}px`;
+const sketchGridBox = Array.from(sketchArea.children);
 
 
 document.body.addEventListener("keydown", (e) => {
@@ -99,9 +100,7 @@ function handleBoxChange(element) {
 
 createSketchArea(sketchAreaRows, sketchAreaCols);
 function createSketchArea(rows, cols) {
-  const sketchGridBox = Array.from(sketchArea.children);
 
-  console.log(sketchGridBox)
   for(let x of sketchGridBox){
     sketchArea.removeChild(x)
   }
@@ -111,9 +110,10 @@ function createSketchArea(rows, cols) {
     const sketchGridBox = document.createElement("div");
     sketchGridBox.style.width = `${sketchAreaSize / rows}px`;
     sketchGridBox.style.height = `${sketchAreaSize / cols}px`;
+    sketchGridBox.classList.add('sketch-boxes')
     document.querySelector(".sketch-area").append(sketchGridBox);
     document.getElementById('grid-size-text').textContent = `${rows} X ${cols}`
-    sketchGridBox.style.border = "1px solid black";
+   // sketchGridBox.style.border = "1px solid black";
     sketchGridBox.addEventListener("mouseover", () =>
       handleBoxChange(sketchGridBox)
     );
@@ -130,3 +130,16 @@ function handleNewGrid(){
 
 gridSizeInput.addEventListener('change', handleNewGrid)
 newGridBtn.addEventListener('click', handleNewGrid)
+
+const gridLinesBtn = document.getElementById('display-grid-btn')
+
+function handleShowGridLines(){
+
+  const sketchBoxes = document.querySelectorAll('.sketch-boxes')
+
+  for(let x of sketchBoxes){
+    x.classList.toggle('gridlines')
+  }
+}
+
+gridLinesBtn.addEventListener('click', handleShowGridLines)
