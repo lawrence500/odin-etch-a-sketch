@@ -21,6 +21,7 @@ let sketchAreaCols = 80;
 let brushActive = false;
 let selectedColor = 'black'
 
+
 const colorOptions = [
   'black',
   'orange',
@@ -78,7 +79,6 @@ function createColorOptions(){
 const sketchArea = document.querySelector(".sketch-area");
 sketchArea.style.width = `${sketchAreaSize}px`;
 sketchArea.style.height = `${sketchAreaSize}px`;
-const sketchGridBox = Array.from(sketchArea.children);
 
 
 document.body.addEventListener("keydown", (e) => {
@@ -100,6 +100,7 @@ function handleBoxChange(element) {
 
 createSketchArea(sketchAreaRows, sketchAreaCols);
 function createSketchArea(rows, cols) {
+  const sketchGridBox = Array.from(sketchArea.children);
 
   for(let x of sketchGridBox){
     sketchArea.removeChild(x)
@@ -134,12 +135,14 @@ newGridBtn.addEventListener('click', handleNewGrid)
 const gridLinesBtn = document.getElementById('display-grid-btn')
 
 function handleShowGridLines(){
-
   const sketchBoxes = document.querySelectorAll('.sketch-boxes')
 
   for(let x of sketchBoxes){
     x.classList.toggle('gridlines')
   }
+
 }
+
+
 
 gridLinesBtn.addEventListener('click', handleShowGridLines)
